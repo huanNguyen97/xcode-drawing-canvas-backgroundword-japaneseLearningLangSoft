@@ -13,6 +13,7 @@
 		0202582827EC5F4000FF8E0A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0202582627EC5F4000FF8E0A /* Main.storyboard */; };
 		0202582A27EC5F4200FF8E0A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0202582927EC5F4200FF8E0A /* Assets.xcassets */; };
 		0202582D27EC5F4200FF8E0A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0202582B27EC5F4200FF8E0A /* LaunchScreen.storyboard */; };
+		0202583727EC5F7700FF8E0A /* Canvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0202583627EC5F7700FF8E0A /* Canvas.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		0202582927EC5F4200FF8E0A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0202582C27EC5F4200FF8E0A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0202582E27EC5F4200FF8E0A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0202583627EC5F7700FF8E0A /* Canvas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Canvas.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 		0202581F27EC5F4000FF8E0A /* Canvas-Drawing */ = {
 			isa = PBXGroup;
 			children = (
+				0202583527EC5F6C00FF8E0A /* Views */,
 				0202582027EC5F4000FF8E0A /* AppDelegate.swift */,
 				0202582227EC5F4000FF8E0A /* SceneDelegate.swift */,
 				0202582427EC5F4000FF8E0A /* ViewController.swift */,
@@ -65,6 +68,14 @@
 				0202582E27EC5F4200FF8E0A /* Info.plist */,
 			);
 			path = "Canvas-Drawing";
+			sourceTree = "<group>";
+		};
+		0202583527EC5F6C00FF8E0A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				0202583627EC5F7700FF8E0A /* Canvas.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -140,6 +151,7 @@
 				0202582527EC5F4000FF8E0A /* ViewController.swift in Sources */,
 				0202582127EC5F4000FF8E0A /* AppDelegate.swift in Sources */,
 				0202582327EC5F4000FF8E0A /* SceneDelegate.swift in Sources */,
+				0202583727EC5F7700FF8E0A /* Canvas.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
