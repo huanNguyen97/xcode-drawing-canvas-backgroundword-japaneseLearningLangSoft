@@ -14,6 +14,8 @@
 		0202582A27EC5F4200FF8E0A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0202582927EC5F4200FF8E0A /* Assets.xcassets */; };
 		0202582D27EC5F4200FF8E0A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0202582B27EC5F4200FF8E0A /* LaunchScreen.storyboard */; };
 		0202583727EC5F7700FF8E0A /* Canvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0202583627EC5F7700FF8E0A /* Canvas.swift */; };
+		02EE0CC327EEB32D0013E25C /* Point.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02EE0CC227EEB32D0013E25C /* Point.swift */; };
+		02EE0CF527EEFD290013E25C /* WordImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02EE0CF427EEFD290013E25C /* WordImage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 		0202582C27EC5F4200FF8E0A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0202582E27EC5F4200FF8E0A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0202583627EC5F7700FF8E0A /* Canvas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Canvas.swift; sourceTree = "<group>"; };
+		02EE0CC227EEB32D0013E25C /* Point.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Point.swift; sourceTree = "<group>"; };
+		02EE0CF427EEFD290013E25C /* WordImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordImage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +78,8 @@
 			isa = PBXGroup;
 			children = (
 				0202583627EC5F7700FF8E0A /* Canvas.swift */,
+				02EE0CC227EEB32D0013E25C /* Point.swift */,
+				02EE0CF427EEFD290013E25C /* WordImage.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -149,9 +155,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				0202582527EC5F4000FF8E0A /* ViewController.swift in Sources */,
+				02EE0CC327EEB32D0013E25C /* Point.swift in Sources */,
 				0202582127EC5F4000FF8E0A /* AppDelegate.swift in Sources */,
 				0202582327EC5F4000FF8E0A /* SceneDelegate.swift in Sources */,
 				0202583727EC5F7700FF8E0A /* Canvas.swift in Sources */,
+				02EE0CF527EEFD290013E25C /* WordImage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

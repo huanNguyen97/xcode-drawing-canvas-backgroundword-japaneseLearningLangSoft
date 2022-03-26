@@ -29,24 +29,19 @@ class Canvas: UIView {
     
     // Declare the line to show
     var lines = [[CGPoint]]()
+    var indexPoint = 0
     // End declaring
     
     // Declare w - h for pointing
-    var x1: Double
-    var y1: Double
-    var x2: Double
-    var y2: Double
+    var coordinate: [Point]
     // End declaring
     
-    init(x1: Double, y1: Double, x2: Double, y2: Double) {
-        self.x1 = x1
-        self.y1 = y1
-        self.x2 = x2
-        self.y2 = y2
+    init(coordinate: [Point]) {
+        self.coordinate = coordinate
         
-        // CAUTION: Not clearly at this line but it's not a bug
-        super.init(frame: CGRect(x: self.x1 + self.x2, y: self.y1 + self.y2, width: 2, height: 2))
-        // End caution
+        // CAUTION: It's not really right but also is not a bug. Write for Run success
+        super.init(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
+        // End
     }
     
     required init?(coder: NSCoder) {
@@ -58,6 +53,14 @@ class Canvas: UIView {
         // Customize drawing
         super.draw(rect)
         // End Customize
+
+        // CAUTION: Not clearly at this line but it's not a bug
+        for (index, point) in self.coordinate.enumerated() {
+            if (index == indexPoint) {
+                point.draw(rect)
+            }
+        }
+        // End
         
         guard let context = UIGraphicsGetCurrentContext() else { return }
         
@@ -78,36 +81,18 @@ class Canvas: UIView {
         }
         
         context.strokePath()
-        
-        // Point 1 - startPoint
-        let rectangle1 = CGRect(x: self.x1, y: self.y1, width: 2, height: 2)
-        
-        context.setFillColor(UIColor.systemRed.cgColor)
-        context.setStrokeColor(UIColor.systemRed.cgColor)
-        context.setLineWidth(20)
-        context.addRect(rectangle1)
-        context.drawPath(using: .fillStroke)
-        // End point
-        
-        // Point 2 - endPoint
-        let rectangle2 = CGRect(x: self.x2, y: self.y2, width: 2, height: 2)
-
-        context.setFillColor(UIColor.systemGreen.cgColor)
-        context.setStrokeColor(UIColor.systemGreen.cgColor)
-        context.setLineWidth(20)
-        context.addRect(rectangle2)
-        context.drawPath(using: .fillStroke)
-        // End point
     }
     
     // Start adding when touch it
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        
         lines.append([CGPoint]())
     }
     // End starting
     
     // Track the finger when moving
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        
         // Declare co-ordinate
         guard let point = touches.first?.location(in: nil) else { return }
         // End declaring
@@ -128,21 +113,22 @@ class Canvas: UIView {
     // When user stop touching
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         let lastDrawing = lines[lines.count - 1]
-        
-        print(lastDrawing[0].x, lastDrawing[0].y)
-        print(lastDrawing[lastDrawing.count - 1].x, lastDrawing[lastDrawing.count - 1].y)
-        
+
         if !(
             (
-                (self.x1 - 20) ... (self.x1 + 20) ~= Double(lastDrawing[0].x)
-                    && (self.y1 - 20) ... (self.y2 + 20) ~= Double(lastDrawing[0].y)
+                (self.coordinate[indexPoint].x1 - 20) ... (self.coordinate[indexPoint].x1 + 20) ~= Double(lastDrawing[0].x)
+                && (self.coordinate[indexPoint].y1 - 20) ... (self.coordinate[indexPoint].y1 + 20) ~= Double(lastDrawing[0].y)
             ) &&
             (
-                (self.x2 - 20) ... (self.x2 + 20) ~= Double(lastDrawing[lastDrawing.count - 1].x)
-                    && (self.y2 - 20) ... (self.y2 + 20) ~= Double(lastDrawing[lastDrawing.count - 1].y)
+                (self.coordinate[indexPoint].x2 - 20) ... (self.coordinate[indexPoint].x2 + 20) ~= Double(lastDrawing[lastDrawing.count - 1].x)
+                && (self.coordinate[indexPoint].y2 - 20) ... (self.coordinate[indexPoint].y2 + 20) ~= Double(lastDrawing[lastDrawing.count - 1].y)
             )
         ) {
             undo()
+        } else {
+            self.indexPoint += 1
+            
+            setNeedsDisplay()
         }
     }
     // End touch
