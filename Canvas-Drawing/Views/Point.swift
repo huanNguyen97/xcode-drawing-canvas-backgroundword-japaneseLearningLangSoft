@@ -10,6 +10,13 @@ import UIKit
 
 class Point: UIView {
     
+    // static let screenSize: CGRect = UIScreen.main.bounds
+    // let screenWidth = Int(screenSize.width)
+    // let screenHeight = Int(screenSize.height)
+    // let screenWidth: Double = {
+        // return Double(screenSize.width)
+    // }()
+    
     // Declare w - h for pointing
     var x1: Double
     var y1: Double
@@ -18,10 +25,41 @@ class Point: UIView {
     // End declaring
     
     init(x1: Double, y1: Double, x2: Double, y2: Double) {
-        self.x1 = x1
-        self.y1 = y1
-        self.x2 = x2
-        self.y2 = y2
+        
+        let screenSize: CGRect = UIScreen.main.bounds
+        
+        // Iphone XR, Iphone Xs Max, Iphone 11, Iphone 11 Pro Max
+        if (screenSize.width == 414.0 && screenSize.height == 896.0) {
+            self.x1 = x1
+            self.y1 = y1
+            self.x2 = x2
+            self.y2 = y2
+        }// Iphone 11 Pro, X, Xs
+        else if (screenSize.width == 375.0 && screenSize.height == 812.0) {
+            self.x1 = x1 - (39 / 2)
+            self.y1 = y1 - (84 / 2)
+            self.x2 = x2 - (39 / 2)
+            self.y2 = y2 - (84 / 2)
+        } // Iphone 6+, 6s+, 7+, 8+
+        else if (screenSize.width == 414.0 && screenSize.height == 736.0) {
+            self.x1 = x1
+            self.y1 = y1 - (160 / 2)
+            self.x2 = x2
+            self.y2 = y2 - (160 / 2)
+        } // Iphone 6, 6s, 7, 8
+        else if (screenSize.width == 375.0 && screenSize.height == 667) {
+            self.x1 = x1 - (39 / 2)
+            self.y1 = y1 - (229 / 2)
+            self.x2 = x2 - (39 / 2)
+            self.y2 = y2 - (229 / 2)
+        } // The others
+        else {
+            self.x1 = x1
+            self.y1 = y1
+            self.x2 = x2
+            self.y2 = y2
+        }
+
         
         // CAUTION: Not clearly at this line but it's not a bug
         super.init(frame: CGRect(x: self.x1 + self.x2, y: self.y1 + self.y2, width: 2, height: 2))

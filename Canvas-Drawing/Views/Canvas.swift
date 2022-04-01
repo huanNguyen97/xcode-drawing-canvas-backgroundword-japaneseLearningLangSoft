@@ -100,6 +100,7 @@ class Canvas: UIView {
         // Add point into line
         guard var lastLine = lines.popLast() else { return }
         lastLine.append(point)
+        print(lastLine)
         // End Adding
         
         // Add lastline into biggest array

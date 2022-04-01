@@ -9,7 +9,7 @@
 import UIKit
 
 class ViewController: UIViewController {
-    
+        
     let canvas = Canvas(coordinate: [
         Point(x1: 150, y1: 380, x2: 270, y2: 370),
         Point(x1: 200, y1: 380, x2: 160, y2: 530),
@@ -20,10 +20,11 @@ class ViewController: UIViewController {
     // Add something
     // End
     
+    
     override func loadView() {
         self.view = canvas
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -31,6 +32,7 @@ class ViewController: UIViewController {
         canvas.backgroundColor = .white
         canvas.frame = view.frame
         
+        // Create the word background for drawing
         let catImage = UIImage(named: "numberFive.png")
         
         let myImageView:UIImageView = UIImageView()
@@ -48,10 +50,7 @@ class ViewController: UIViewController {
         myImageView.widthAnchor.constraint(equalToConstant: 300).isActive = true
         myImageView.centerXAnchor.constraint(lessThanOrEqualTo: canvas.centerXAnchor).isActive = true
         myImageView.centerYAnchor.constraint(lessThanOrEqualTo: canvas.centerYAnchor).isActive = true
-        
-
-        
-        // Set value for word view
+        // End creating the word
         // End setting
     }
 }
